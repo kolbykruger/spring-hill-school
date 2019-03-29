@@ -7,7 +7,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {d
 html{font-size: 62.5%; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;}
 html[lang="en"]{opacity:0;}
 html.wf-active,html.wf-inactive{opacity: 1; transition: opacity .4s ease-out;}
-body{color: rgba(0,0,0,.8); background: rgb(248, 248, 248); font-family: 'Muli', sans-serif; font-size: 1.6rem;}
+body{color: rgba(0,0,0,.8); background: #fff; font-family: 'Muli', sans-serif; font-size: 1.6rem;}
 p{font-size: 1.6rem; margin: 0 0 16px 0; font-weight: 400; line-height: 1.6;}
 p:last-of-type{margin: 0;}
 a{color: #ef4538;}
@@ -72,10 +72,9 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
 .modal .modal_close{color: rgba(0,0,0,.84); position: absolute; top: 0; right: 0; padding: 5px; cursor: pointer; line-height: 100%; z-index: 100;}
 
 /*Header*/
-#home .headerWrap {position: absolute; top: 0; left: 0; width: 100vw; z-index: 10;}
-
-.headerWrap{width: 100%; background: rgba(0,0,0,0.5); background: linear-gradient(to bottom, rgba(76, 76, 76, 0.85), rgba(76, 76, 76, 0));}
-.header{width: 100%; max-width: 1400px; margin: 0 auto; padding: 20px 10px; position: relative; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: center;}
+.headerWrap{position: relative; width: 100%; z-index: 10;}
+.headerWrap::before {content: ''; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #4C4C4C; opacity: 0.75; z-index: -1;}
+.header{width: 100%; max-width: 1400px; margin: 0 auto; padding: 20px 10px 10px; position: relative; display: flex; flex-flow: row wrap; justify-content: space-between; align-items: flex-end;}
 .header .logo{width: 50%; max-width: 340px;}
 .header .logo a{display: block;}
 .header .logo img{width: 100%;}
@@ -94,20 +93,20 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
     }
 
 /* Utility Nav */
-.utility-navigation {}
+.utility-navigation {position: absolute; left: 0; width: 100%; top: 0;}
 .utility-navigation .contents {display: flex; align-items: center; justify-content: flex-end; max-width: 1400px; margin: 0 auto;}
 .utility-navigation .item {margin-left: 1.5em; font-size: 1.4rem; padding: 0.5em;}
 .utility-navigation a {text-decoration: none; color: #fff; opacity: 0.75;}
 
 /*Nav*/
-.nav{user-select: none; text-align: center; z-index: 10; display: flex; flex-flow: row wrap; align-items: center;}
+.nav{user-select: none; text-align: center; z-index: 10; display: flex; flex-flow: row wrap; align-items: center; padding-bottom: 10px;}
 .nav .item{position: relative;}
 .nav .item a{margin:0 32px 0 0; display: block; color: #fff; text-decoration: none; font-weight: 400; font-size: 1.8rem; transition: color 0.3s cubic-bezier(.25,.8,.25,1);}
-.nav .item a:hover, .nav .item a:focus{color: #ef4438;}
+.nav .item a:hover, .nav .item a:focus{color: #a4b691;}
 .nav .item:last-child a{margin:0}
 .nav .item i{font-size: 1.2rem; cursor: pointer; margin: 0 0 0 6px;}
-.nav .item.open{background: rgba(255,255,255,.2);color: #ef4438;}
-.nav .item.open a{color: #ef4438;}
+.nav .item.open{background: rgba(255,255,255,.2);color: #a4b691;}
+.nav .item.open a{color: #a4b691;}
 .nav .item .drop_menu .item{display: block;}
 .nav .item .drop_menu{border-radius: 3px; padding:0; overflow: hidden; left: 0; opacity:0; position: absolute; top:-9999px; border: 1px solid #e4e4e4; background: rgba(255,255,255,1); white-space: nowrap; min-width: 200px; box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08); text-align: left; transition: opacity 0.35s}
 .nav > .drop_trigger:last-child .drop_menu{left: auto; right: 8px; text-align: right;}
@@ -288,7 +287,7 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
 
 /*Instafeed*/
 .instagram_widget{margin: 120px auto 0; width: 100%; max-width: 1200px;}
-.instagram_widget .heading{width: 100%; margin:0 0 10px 0;}
+.instagram_widget .heading{width: 100%; margin:0 0 10px 0; text-align: center;}
     @media (max-width: 768px) {
     .instagram_widget{margin: 80px auto 0;}
     }
@@ -514,15 +513,16 @@ button.button, input[type="submit"].button {cursor: pointer; font-family: inheri
     }
 
 /*Footer*/
-.footer_wrap{width: 100%; background: #f8f8f8; padding: 10px; margin: 20px 0 0 0;}
+.footer_wrap{width: 100%; background: #f6f9fc; padding: 10px; margin: 20px 0 0 0;}
 .footer{width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden; font-size: 1.2rem; text-align: center; color: rgba(0,0,0,.84);}
+.footer .drawing{width:300px; margin:0 auto}
 .footer a{color: rgba(0,0,0,.84);}
 .footer .social{margin: 20px auto; font-size: 2rem; display: flex; justify-content: center;}
-.footer .social a{margin: 0 5px; position: relative; background: rgba(0,0,0,1); display: flex; align-items: center; justify-content: center; padding: 5px; color: #fff; text-decoration: none; width: 2em;}
+.footer .social a{margin: 0 5px; position: relative; background: #4e4e4e; display: flex; align-items: center; justify-content: center; padding: 5px; border-radius: 50%; color: #fff; text-decoration: none; width: 2em;}
 .footer .social a:after {content: ""; display: block; padding-bottom: 100%;}
 .footer .social a:hover{background: rgba(0,0,0,.6);}
 .footer .address{margin: 0 auto 5px;}
 .footer .contact{margin: 0 auto 5px;}
 .footer .copyright{margin: 0 auto 5px;}
-.footer .ewd{margin: 0 auto 5px; width: 200px;}
+.footer .ewd{margin: 0 auto 5px; width: 150px;}
 .footer .ewd img{width: 100%;}
